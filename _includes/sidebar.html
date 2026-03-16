@@ -1,0 +1,65 @@
+<nav class="sidebar" id="sidebar" aria-label="Main navigation">
+  <div class="sidebar-inner">
+
+    <div class="nav-section">
+      <a href="{{ site.baseurl }}/" class="nav-item nav-home {% if page.url == '/' %}active{% endif %}">
+        <span class="nav-icon">🏠</span> Home
+      </a>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-section-title">Modules</div>
+
+      <a href="{{ site.baseurl }}/modules/module-01-cloud-concepts"
+         class="nav-item {% if page.url contains 'module-01' %}active{% endif %}">
+        <span class="nav-icon">☁</span> Module 1: Cloud Concepts
+      </a>
+      <div class="nav-sub {% if page.url contains 'module-01' %}show{% endif %}">
+        <a href="{{ site.baseurl }}/modules/module-01-cloud-concepts#what-is-cloud-computing">What is cloud computing?</a>
+        <a href="{{ site.baseurl }}/modules/module-01-cloud-concepts#cloud-deployment-models">Cloud deployment models</a>
+        <a href="{{ site.baseurl }}/modules/module-01-cloud-concepts#service-models">IaaS, PaaS, SaaS</a>
+      </div>
+
+      <a href="{{ site.baseurl }}/modules/module-02-core-services"
+         class="nav-item {% if page.url contains 'module-02' %}active{% endif %}">
+        <span class="nav-icon">⚙</span> Module 2: Core Services
+      </a>
+      <div class="nav-sub {% if page.url contains 'module-02' %}show{% endif %}">
+        <a href="{{ site.baseurl }}/modules/module-02-core-services#azure-regions">Azure regions</a>
+        <a href="{{ site.baseurl }}/modules/module-02-core-services#resource-groups">Resource groups</a>
+        <a href="{{ site.baseurl }}/modules/module-02-core-services#virtual-machines">Virtual machines</a>
+        <a href="{{ site.baseurl }}/modules/module-02-core-services#azure-storage">Azure storage</a>
+      </div>
+
+      <a href="{{ site.baseurl }}/modules/module-03-security"
+         class="nav-item {% if page.url contains 'module-03' %}active{% endif %}">
+        <span class="nav-icon">🔒</span> Module 3: Security
+      </a>
+      <div class="nav-sub {% if page.url contains 'module-03' %}show{% endif %}">
+        <a href="{{ site.baseurl }}/modules/module-03-security#shared-responsibility">Shared responsibility</a>
+        <a href="{{ site.baseurl }}/modules/module-03-security#security-tools">Security tools</a>
+        <a href="{{ site.baseurl }}/modules/module-03-security#identity-access">IAM</a>
+      </div>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-section-title">Labs</div>
+      <a href="{{ site.baseurl }}/labs/lab-01-create-vm"
+         class="nav-item {% if page.url contains 'lab-01' %}active{% endif %}">
+        <span class="nav-icon">⚗</span> Lab 1: Create a VM
+      </a>
+    </div>
+
+    <div class="nav-section">
+      <div class="nav-section-title">Reference</div>
+      <a href="{{ site.baseurl }}/practice-questions" class="nav-item {% if page.url contains 'practice' %}active{% endif %}">
+        <span class="nav-icon">📝</span> Practice questions
+      </a>
+      <a href="{{ site.baseurl }}/glossary" class="nav-item {% if page.url contains 'glossary' %}active{% endif %}">
+        <span class="nav-icon">📖</span> Glossary
+      </a>
+    </div>
+
+  </div>
+</nav>
+<div class="sidebar-overlay" id="sidebar-overlay"></div>

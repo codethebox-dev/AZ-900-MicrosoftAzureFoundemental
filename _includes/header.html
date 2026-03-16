@@ -1,0 +1,28 @@
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="{{ site.baseurl }}/" class="site-logo">
+        <span class="logo-icon">☁</span>
+        <span class="logo-text">{{ site.title }}</span>
+      </a>
+    </div>
+    <div class="header-right">
+      <div class="header-search">
+        <input type="search" id="search-input" placeholder="Search docs..." aria-label="Search">
+        <span class="search-icon">🔍</span>
+      </div>
+      {% if site.aux_links %}
+      <nav class="aux-nav">
+        {% for link in site.aux_links %}
+        <a href="{{ link[1][0] }}" class="aux-link" {% if site.aux_links_new_tab %}target="_blank" rel="noopener"{% endif %}>
+          {{ link[0] }}
+        </a>
+        {% endfor %}
+      </nav>
+      {% endif %}
+    </div>
+  </div>
+</header>

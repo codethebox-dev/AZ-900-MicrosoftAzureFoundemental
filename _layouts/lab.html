@@ -1,0 +1,38 @@
+---
+layout: default
+---
+<div class="lab-header">
+  <div class="lab-eyebrow">
+    <span class="lab-badge">Hands-on Lab</span>
+    <span class="lab-duration">⏱ {{ page.duration | default: "~20 min" }}</span>
+    <span class="lab-level">{{ page.level | default: "Beginner" }}</span>
+  </div>
+  <h1 class="lab-title">{{ page.title }}</h1>
+  {% if page.description %}
+  <p class="lab-description">{{ page.description }}</p>
+  {% endif %}
+</div>
+
+{% if page.prerequisites %}
+<div class="callout callout-important">
+  <strong>Prerequisites</strong>
+  <ul>
+    {% for prereq in page.prerequisites %}
+    <li>{{ prereq }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+<div class="lab-body">
+  {{ content }}
+</div>
+
+<div class="module-nav">
+  {% if page.prev_lab %}
+  <a href="{{ page.prev_lab | relative_url }}" class="btn btn-outline">← Previous lab</a>
+  {% endif %}
+  {% if page.next_lab %}
+  <a href="{{ page.next_lab | relative_url }}" class="btn btn-primary">Next lab →</a>
+  {% endif %}
+</div>
