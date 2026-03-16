@@ -1,13 +1,13 @@
 title: "AZ-900: Azure Fundamentals"
 description: "Microsoft Azure Fundamentals certification study documentation — modules, labs, and practice questions."
 baseurl: "/az-900-docs"
-url: "https://myorg.github.io"
+url: "https://codethebox-dev.github.io"
 
 theme: just-the-docs
 
 # Author
 author:
-  name: "MyOrg Learning"
+  name: "Codethebox Learning"
 
 # Just the Docs settings
 color_scheme: light
@@ -25,7 +25,7 @@ heading_anchors: true
 permalink: pretty
 aux_links:
   "View on GitHub":
-    - "https://github.com/myorg/az-900-docs"
+    - "https://github.com/codethebox-dev/AZ-900-MicrosoftAzureFoundemental"
 aux_links_new_tab: true
 
 nav_external_links:
@@ -33,7 +33,7 @@ nav_external_links:
     url: https://learn.microsoft.com/en-us/training/paths/az-900-describe-cloud-concepts/
     hide_icon: false
 
-footer_content: "AZ-900 Azure Fundamentals Docs &copy; 2025 MyOrg Learning. Distributed under MIT License."
+footer_content: "AZ-900 Azure Fundamentals Docs &copy; 2025 codethebox-dev Learning. Distributed under MIT License."
 
 back_to_top: true
 back_to_top_text: "Back to top"
@@ -43,7 +43,7 @@ last_edit_time_format: "%b %e %Y at %I:%M %p"
 
 gh_edit_link: true
 gh_edit_link_text: "Edit this page on GitHub"
-gh_edit_repository: "https://github.com/myorg/az-900-docs"
+gh_edit_repository: "https://github.com/codethebox-dev/AZ-900-MicrosoftAzureFoundemental"
 gh_edit_branch: "main"
 gh_edit_source: docs
 gh_edit_view_mode: "tree"
