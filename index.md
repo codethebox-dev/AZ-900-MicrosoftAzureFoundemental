@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: default
 title: Home
 nav_order: 1
 description: "AZ-900 Azure Fundamentals — complete study documentation with modules, hands-on labs, and practice questions."

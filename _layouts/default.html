@@ -1,28 +1,121 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: "en-US" }}">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}</title>
-    <meta name="description" content="{{ page.description | default: site.description }}">
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-    {% seo %}
-  </head>
-  <body>
-    {% include header.html %}
-    <div class="page-wrapper">
-      {% include sidebar.html %}
-      <main class="main-content" id="main-content">
-        <div class="content-container">
-          {% if page.title %}
-          <h1 class="page-title">{{ page.title }}</h1>
-          {% endif %}
-          {{ content }}
-        </div>
-        {% include footer.html %}
-      </main>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
+  {% seo %}
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="header-left">
+      <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="{{ site.baseurl }}/" class="site-logo">
+        <span class="logo-icon">☁</span>
+        <span class="logo-text">{{ site.title }}</span>
+      </a>
     </div>
-    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
-  </body>
+    <div class="header-right">
+      <a href="https://github.com/myorg/az-900-docs" class="aux-link" target="_blank" rel="noopener">View on GitHub</a>
+    </div>
+  </div>
+</header>
+
+<div class="page-wrapper">
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar" id="sidebar">
+    <div class="sidebar-inner">
+      <div class="nav-section">
+        <a href="{{ site.baseurl }}/" class="nav-item {% if page.url == '/' %}active{% endif %}">
+          <span class="nav-icon">🏠</span> Home
+        </a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">Modules</div>
+        <a href="{{ site.baseurl }}/modules/module-01-cloud-concepts/" class="nav-item {% if page.url contains 'module-01' %}active{% endif %}">
+          <span class="nav-icon">☁</span> Module 1: Cloud Concepts
+        </a>
+        <a href="{{ site.baseurl }}/modules/module-02-core-services/" class="nav-item {% if page.url contains 'module-02' %}active{% endif %}">
+          <span class="nav-icon">⚙</span> Module 2: Core Services
+        </a>
+        <a href="{{ site.baseurl }}/modules/module-03-security/" class="nav-item {% if page.url contains 'module-03' %}active{% endif %}">
+          <span class="nav-icon">🔒</span> Module 3: Security
+        </a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">Labs</div>
+        <a href="{{ site.baseurl }}/labs/lab-01-create-vm/" class="nav-item {% if page.url contains 'lab-01' %}active{% endif %}">
+          <span class="nav-icon">⚗</span> Lab 1: Create a VM
+        </a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">Reference</div>
+        <a href="{{ site.baseurl }}/practice-questions/" class="nav-item {% if page.url contains 'practice' %}active{% endif %}">
+          <span class="nav-icon">📝</span> Practice questions
+        </a>
+        <a href="{{ site.baseurl }}/glossary/" class="nav-item {% if page.url contains 'glossary' %}active{% endif %}">
+          <span class="nav-icon">📖</span> Glossary
+        </a>
+      </div>
+    </div>
+  </nav>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- MAIN -->
+  <main class="main-content" id="main-content">
+    <div class="content-container">
+      {{ content }}
+    </div>
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <p>AZ-900 Azure Fundamentals Docs &copy; 2025 MyOrg Learning. MIT License.</p>
+          <p class="footer-note">Not affiliated with Microsoft. AZ-900 is a trademark of Microsoft Corporation.</p>
+        </div>
+        <div class="footer-right">
+          <a href="https://github.com/myorg/az-900-docs" class="footer-link">GitHub</a>
+          <a href="{{ site.baseurl }}/glossary/" class="footer-link">Glossary</a>
+          <a href="https://learn.microsoft.com/en-us/certifications/azure-fundamentals/" class="footer-link" target="_blank">Official Exam</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+</div><!-- /page-wrapper -->
+
+<script>
+(function(){
+  var toggle  = document.getElementById('sidebar-toggle');
+  var sidebar = document.getElementById('sidebar');
+  var overlay = document.getElementById('sidebar-overlay');
+  if(toggle && sidebar){
+    toggle.addEventListener('click', function(){
+      sidebar.classList.toggle('open');
+      overlay.classList.toggle('open');
+    });
+    overlay.addEventListener('click', function(){
+      sidebar.classList.remove('open');
+      overlay.classList.remove('open');
+    });
+  }
+  var btn = document.createElement('button');
+  btn.textContent = '↑ Top';
+  btn.style.cssText = 'position:fixed;bottom:24px;right:24px;background:#0067b8;color:#fff;border:none;border-radius:4px;padding:8px 14px;font-size:13px;font-weight:600;cursor:pointer;opacity:0;transition:opacity .2s;z-index:50;';
+  document.body.appendChild(btn);
+  window.addEventListener('scroll', function(){ btn.style.opacity = window.scrollY > 300 ? '1' : '0'; });
+  btn.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+})();
+</script>
+
+</body>
 </html>

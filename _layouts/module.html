@@ -7,29 +7,21 @@ layout: default
     <span class="module-duration">⏱ {{ page.duration | default: "~1 hr" }}</span>
   </div>
   <h1 class="module-title">{{ page.title }}</h1>
-  {% if page.description %}
-  <p class="module-description">{{ page.description }}</p>
-  {% endif %}
+  {% if page.description %}<p class="module-description">{{ page.description }}</p>{% endif %}
   {% if page.objectives %}
   <div class="module-objectives">
     <strong>In this module:</strong>
-    <ul>
-      {% for obj in page.objectives %}
-      <li>{{ obj }}</li>
-      {% endfor %}
-    </ul>
+    <ul>{% for obj in page.objectives %}<li>{{ obj }}</li>{% endfor %}</ul>
   </div>
   {% endif %}
 </div>
 
-<div class="module-body">
-  {{ content }}
-</div>
+{{ content }}
 
 <div class="module-nav">
   {% if page.prev_module %}
   <a href="{{ page.prev_module | relative_url }}" class="btn btn-outline">← Previous module</a>
-  {% endif %}
+  {% else %}<span></span>{% endif %}
   {% if page.next_module %}
   <a href="{{ page.next_module | relative_url }}" class="btn btn-primary">Next module →</a>
   {% endif %}
